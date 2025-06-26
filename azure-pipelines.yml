@@ -19,5 +19,17 @@ steps:
   inputs:
     script: |
       echo Build Complete
-      
       echo Hello world
+- task: MSBuild@1
+  inputs:
+    solution: '**/*.sln'
+    clean: true
+    restoreNugetPackages: true
+    createLogFile: true
+- task: Bash@3
+  inputs:
+    targetType: 'inline'
+    script: |
+      # Write your commands here
+      
+      echo 'Hello world'
